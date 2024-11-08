@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            perspective: 800px; /* Perspective for 3D effect */
+            background-color: #f0f0f0;
+        }
+
+        .scene {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d; /* Enable 3D transformations */
+            /*animation: rotate 5s infinite linear; /* Rotate the cube */
+        }
+
+        .cube {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Define each side of the cube */
+        .front  { background-color: #ff5733; transform: translateZ(100px); }
+        .back   { background-color: #33c3ff; transform: rotateY(180deg) translateZ(100px); }
+        .right  { background-color: #75ff33; transform: rotateY(90deg) translateZ(100px); }
+        .left   { background-color: #ff33a1; transform: rotateY(-90deg) translateZ(100px); }
+        .top    { background-color: #ffcc33; transform: rotateX(90deg) translateZ(100px); }
+        .bottom { background-color: #33ff57; transform: rotateX(-90deg) translateZ(100px); }
+
+        @keyframes rotate {
+            from { transform: rotateX(0) rotateY(0); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="cube front"></div>
+        <div class="cube back"></div>
+        <div class="cube right"></div>
+        <div class="cube left"></div>
+        <div class="cube top"></div>
+        <div class="cube bottom"></div>
+    </div>
+</body>
+</html>
